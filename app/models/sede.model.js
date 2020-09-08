@@ -19,7 +19,6 @@ Sede.getAll = result => {
             result(null, res);
         }
 
-
     });
 };
 
@@ -32,7 +31,7 @@ Sede.findById = (codSede, result) => {
         }
 
         if (res.length) {
-            console.log("Empleado encontrado: ", res[0]);
+            console.log("Sede encontrado: ", res[0]);
             result(null, res[0]);
             return;
         } else {

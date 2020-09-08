@@ -13,6 +13,4 @@ module.exports = app => {
     // Delete a Customer with customerId
     app.delete("/sedes/:codSede", sedes.delete);
 
-
-
 };

@@ -9,7 +9,10 @@ app.get('/', (req, res) => {
     res.json({ message: "Welcome to school  application." });
 });
 
+
 require("./app/routes/sede.routes.js")(app);
+require("./app/routes/edificio.routes.js")(app);
+
 
 
 
