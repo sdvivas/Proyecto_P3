@@ -1,5 +1,4 @@
 const Edficio = require('../models/edificio.model');
-const Edificio = require('../models/edificio.model');
 
 exports.findAll = (req, res) => {
     Edficio.getAll((err, data) => {
