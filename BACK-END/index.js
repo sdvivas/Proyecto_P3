@@ -13,7 +13,8 @@ app.get('/', (req, res) => {
 require("./app/routes/sede.routes.js")(app);
 require("./app/routes/edificio.routes.js")(app);
 require("./app/routes/aula.router")(app);
-
+require("./app/routes/docente.router")(app);
+require("./app/routes/estudiante.router")(app);
 
 
 // set port, listen for requests
