@@ -31,3 +31,80 @@ exports.findOne = (req, res) => {
     });
 };
 
+exports.create = (req, res) => {
+    if (!req.body) {
+        res.status(400).send({
+            message: "Conteniedo no puede estar vacio!"
+        });
+    }
+
+    const aula = new Aula({
+
+        cod_aula : req.body.cod_aula,
+        cod_edificio: req.body.cod_edificio,
+        nombre: req.body.nombre,
+        capacidad : req.body.capacidad,
+        tipo : req.body.tipo,
+        piso : req.body.piso
+
+    });
+
+    Aula.create(aula, (err, data) => {
+        if (err) {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while creating the Sede."
+            });
+        } else {
+            res.status(201).send(data);
+        }
+    });
+};
+
+exports.update = (req, res) => {
+    if (!req.body) {
+        res.status(400).send({
+            message: "Contenido no puede estar vacio!"
+        });
+    }
+
+    Aula.updateById(
+        req.params.codAula,
+        new Aula(req.body),
+        (err, data) => {
+            if (err) {
+                if (err.kind === "not_found") {
+                    res.status(404).send({
+                        message: `No se se encuentra el aula con el id: ${req.params.codAula}.`
+                    });
+                } else {
+                    res.status(500).send({
+                        message: "Error al actualizar aula con el id " + req.params.codAula
+                    });
+                }
+            } else {
+                res.send(data);
+            }
+
+        }
+    );
+};
+
+exports.delete = (req, res) => {
+    Aula.remove(req.params.codAula, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                    message: `No se se encuentra el aula con el codigo: ${req.params.codAula}.`
+                });
+            } else {
+                res.status(500).send({
+                    message: "No se pudo borrar el aula con el codigo:" + req.params.codAula
+                });
+            }
+        } else {
+            res.send({ message: "Aula fue borrado satisfactoriamente!" });
+        }
+    });
+};
+

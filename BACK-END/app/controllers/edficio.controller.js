@@ -1,7 +1,7 @@
-const Edficio = require('../models/edificio.model');
+const Edificio = require('../models/edificio.model');
 
 exports.findAll = (req, res) => {
-    Edficio.getAll((err, data) => {
+    Edificio.getAll((err, data) => {
         if (err) {
             res.status(500).send({
                 message:
@@ -15,7 +15,7 @@ exports.findAll = (req, res) => {
 
 
 exports.findOne = (req, res) => {
-    Edficio.findById(req.params.codEdificio, (err, data) => {
+    Edificio.findById(req.params.codEdificio, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
@@ -67,8 +67,6 @@ exports.update = (req, res) => {
         });
     }
 
-    //console.log(req.body);
-
     Edificio.updateById(
         req.params.codEdificio,
         new Edificio(req.body),
@@ -76,11 +74,11 @@ exports.update = (req, res) => {
             if (err) {
                 if (err.kind === "not_found") {
                     res.status(404).send({
-                        message: `No se se encuentra el edificio con el id: ${req.params.codEdificio}.`
+                        message: `No se se encuentra el edificio con el codigo: ${req.params.codEdificio}.`
                     });
                 } else {
                     res.status(500).send({
-                        message: "Error al actualizar edificio con el id " + req.params.codEdificio
+                        message: "Error al actualizar edificio con el codigo " + req.params.codEdificio
                     });
                 }
             } else {
@@ -96,11 +94,11 @@ exports.delete = (req, res) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
-                    message: `No se se encuentra el edificio con el id ${req.params.codEdificio}.`
+                    message: `No se se encuentra el edificio con el codigo ${req.params.codEdificio}.`
                 });
             } else {
                 res.status(500).send({
-                    message: "No se pudo borrar el Edificio con el  id " + req.params.codEdificio
+                    message: "No se pudo borrar el Edificio con el  codigo " + req.params.codEdificio
                 });
             }
         } else {
