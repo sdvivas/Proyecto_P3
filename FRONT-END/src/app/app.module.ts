@@ -112,6 +112,7 @@ import {NodeService} from './demo/service/nodeservice';
 import {BreadcrumbService} from './breadcrumb.service';
 import {MenuService} from './app.menu.service';
 import { SedeComponent } from './Administrativo/infraestructura/sede/sede.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
     imports: [
@@ -213,7 +214,8 @@ import { SedeComponent } from './Administrativo/infraestructura/sede/sede.compon
         EmptyDemoComponent,
         FileDemoComponent,
         DocumentationComponent,
-        SedeComponent
+        SedeComponent,
+        LoginComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

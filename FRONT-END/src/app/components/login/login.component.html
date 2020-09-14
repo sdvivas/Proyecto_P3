@@ -1,0 +1,38 @@
+<div class="login-body">
+    <div class="mobile-banner">
+        <img src="assets/layout/images/logo-mobile.svg" alt="prestige-layout" />
+    </div>
+    <div class="login-panel">
+        <div class="logo">
+            <img src="assets/layout/images/logo.svg" alt="prestige-layout" />
+        </div>
+    </div>
+
+    <div class="login-card">
+        <div class="top-border"></div>
+        <div class="login-content">
+            <h1>Login</h1>
+            <p>Bienvenido al intranet del Colegio VRP</p>
+            <form>
+                <div class="username-container">
+                    <label>Username</label>
+                    <div class="login-input">
+                        <input type="text" autocomplete="off" [(ngModel)]="auth.username" name="username" placeholder="Enter your username" required>
+                    </div>
+                </div>
+                <div class="password-container">
+                    <label>Password</label>
+                    <div class="login-input">
+                        <input type="password" [(ngModel)]="auth.password" autocomplete="off" name="password" placeholder="Enter your password" required>
+                    </div>
+                </div>
+                <div class="forgetpassword-container">
+                    <a href="#" class="forget-password">Forget Password?</a>
+                </div>
+                <div>
+                    <button pButton (click)="login()" type="submit" label="Iniciar Sesión" style="width: 100%"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

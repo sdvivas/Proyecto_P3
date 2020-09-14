@@ -18,8 +18,12 @@ import { AppNotfoundComponent } from './pages/app.notfound.component';
 import { AppErrorComponent } from './pages/app.error.component';
 import { AppAccessdeniedComponent } from './pages/app.accessdenied.component';
 import { AppLoginComponent } from './pages/app.login.component';
+//INIT
+import { NgModule } from '@angular/core';
+import { LoginComponent } from "./components/login/login.component";
 
-export const routes: Routes = [
+//export const routes: Routes = [
+    const routes: Routes = [
     { path: '', component: AppMainComponent,
         children: [
             { path: '', component: DashboardDemoComponent },
@@ -37,12 +41,22 @@ export const routes: Routes = [
             { path: 'documentation', component: DocumentationComponent }
         ]
     },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
     {path: 'error', component: AppErrorComponent},
     {path: 'accessdenied', component: AppAccessdeniedComponent},
     {path: 'notfound', component: AppNotfoundComponent},
-    {path: 'login', component: AppLoginComponent},
+    {path: 'login2', component: AppLoginComponent},
     {path: '**', redirectTo: '/notfound'},
-
+    
 ];
 
-export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'});
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+
+//export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'});
+export class AppRoutes { }
