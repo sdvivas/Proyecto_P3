@@ -22,8 +22,6 @@ Auth.login = (auth, result) => {
                     res = null;
                     result(null, res);
                 } else {
-                    var count = Object.keys(res[0]).length;
-                    console.log(count);
                     result(null, res[0]);
                 }
 
