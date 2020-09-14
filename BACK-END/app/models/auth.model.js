@@ -22,3 +22,5 @@ Auth.login = (auth, result) => {
             }
         })
 };
+
+module.exports = Auth;
