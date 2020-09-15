@@ -121,15 +121,15 @@ exports.listMaterias = (req, res) => {
 };
 
 exports.listEstudiante = (req, res) => {
-    Tarea_Asignatura.listarEstudiante(req.params.cod_docente, req.parmas.cod_asignatura, req.parmas.cod_paralelo, req.parmas.cod_nivel_educativo, (err, data) => {
+    Tarea_Asignatura.listarEstudiante(req.params.cod_docente, req.params.cod_asignatura, req.params.cod_paralelo, req.params.cod_nivel_educativo, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
-                    message: `Docente  no encontrado con el codigo:  ${req.parmas.cod_docente}.`
+                    message: `Docente  no encontrado con el codigo:  ${req.params.cod_docente}.`
                 });
             } else {
                 res.status(500).send({
-                    message: "Error al recuperar edficio con id " + req.parmas.cod_docente
+                    message: "Error al recuperar edficio con id " + req.params.cod_docente
                 });
             }
         } else {
@@ -147,7 +147,7 @@ exports.listParalelo = (req, res) => {
                 });
             } else {
                 res.status(500).send({
-                    message: "Error al recuperar edficio con id " + req.parmas.cod_docente
+                    message: "Error al recuperar edficio con id " + req.params.cod_docente
                 });
             }
         } else {

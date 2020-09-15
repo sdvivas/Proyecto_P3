@@ -42,6 +42,7 @@ export class AddnotaComponent implements OnInit {
   public Nivel: NivelDocentes[];
   public Paralelo: Paralelo[];
   public cod_paralelo;
+  public cod_nivel;
 
   constructor(private router: Router, private notaService: NotaService) { }
 
@@ -71,23 +72,28 @@ export class AddnotaComponent implements OnInit {
     })
   }
 
- /* listEstudiantes(){
-    this.notaService.listarEstudiante().subscribe(data => {
+ listEstudiante(cod_asignatura){
+    this.notaService.listarEstudiante(this.user.COD_PERSONA,cod_asignatura,this.cod_paralelo,this.cod_nivel).subscribe(data => {
       console.log(data);
     }, error => {
       console.log(error);
 
     })
-  }*/
+  }
 
   onSelect(cod_asignatura){
+    this.cod_paralelo = cod_asignatura;
     this.notaService.listarAsignatura(this.user.COD_PERSONA,cod_asignatura).subscribe(data => {
       this.Materia = data;
-      console.log(data);
+      console.log(this.cod_paralelo);
     }, error => {
       console.log(error);
 
     })
+  }
+  onNivel(cod_nivel){
+    this.cod_nivel = cod_nivel;
+    console.log(this.cod_nivel);
   }
 
 }

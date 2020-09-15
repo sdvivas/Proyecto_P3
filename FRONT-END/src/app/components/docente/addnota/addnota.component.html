@@ -1,17 +1,30 @@
-<select [(ngModel)]="selectedNivel.COD_NIVEL_EDUCATIVO">
-    <option *ngFor="let nivel of Nivel" value={{nivel.COD_NIVEL_EDUCATIVO}}>
-        {{nivel.NOMBRE}}
-    </option>
-</select>
+<div class="layout-wrapper layout-blue layout-menu-horizontal" ng-reflect-klass="layout-blue" ng-reflect-ng-class="[object Object]">
+    <app-navbardocente></app-navbardocente>
+    <p-toast></p-toast>
+    <div class="ui-g">
+        <p-confirmDialog header="Confirmación" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+        <div class="ui-g-12">
+            <div class="card no-margin">
+                <div class="p-grid">
+                    <div class="ui-g">
+                        <select [(ngModel)]="selectedNivel.COD_NIVEL_EDUCATIVO" (change)="onNivel($event.target.value)">
+                        <option *ngFor="let nivel of Nivel" value={{nivel.COD_NIVEL_EDUCATIVO}}>
+                            {{nivel.NOMBRE}}
+                        </option>
+                    </select>
 
-<select [(ngModel)]="selectedParalelo" (change)="onSelect($event.target.value)">
-    <option *ngFor="let paralelo of Paralelo" value={{paralelo.COD_PARALELO}}>
-        {{paralelo.NOMBRE}}
-    </option>
-</select>
-
-<select [(ngModel)]="selectedAsignatura">
-    <option *ngFor="let materia of Materia" value={{materia.COD_ASIGNATURA}}>
-        {{materia.NOMBRE}}
-    </option>
-</select>
+                        <select [(ngModel)]="selectedParalelo" (change)="onSelect($event.target.value)">
+                        <option *ngFor="let paralelo of Paralelo" value={{paralelo.COD_PARALELO}}>
+                            {{paralelo.NOMBRE}}
+                        </option>
+                    </select>
+                        <select [(ngModel)]="selectedAsignatura" (change)="listEstudiante($event.target.value)">
+                        <option *ngFor="let materia of Materia" value={{materia.COD_ASIGNATURA}}>
+                            {{materia.NOMBRE}}
+                        </option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
