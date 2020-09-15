@@ -29,6 +29,7 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
 import { AdminprofileComponent } from "./components/profile/adminprofile/adminprofile.component";
 import { EstudianteprofileComponent } from "./components/profile/estudianteprofile/estudianteprofile.component";
 import { DocenteprofileComponent } from "./components/profile/docenteprofile/docenteprofile.component";
+import { TareaComponent } from './components/docente/tarea/tarea.component';
 
 //export const routes: Routes = [
 const routes: Routes = [
@@ -59,6 +60,7 @@ const routes: Routes = [
     { path: 'admin/edificio', component: EdificioComponent },
     { path: 'admin/aula', component: AulaComponent },
     { path: 'doc/nueva_tarea', component: DocenteComponent },
+    { path: 'doc/tarea', component: TareaComponent },
     { path: 'est/ver_notas', component: EstudianteComponent },
     { path: 'error', component: AppErrorComponent },
     { path: 'accessdenied', component: AppAccessdeniedComponent },
