@@ -1,5 +1,23 @@
 <div class="layout-wrapper layout-blue layout-menu-horizontal" ng-reflect-klass="layout-blue" ng-reflect-ng-class="[object Object]">
     <app-navbarestudiante></app-navbarestudiante>
-    <p>estudiante works!</p>
+    
+    <div class="ui-g">
+         <div class="ui-g-12">
+            <div class="card no-margin">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-1">
+                        <label for="Materia">Nivel Educativo</label>
+                    </div>
+                    <div class="p-col-12 p-md-4">
+                        <select #materia name="materia" >
+                            <option hidden selected>Seleccione un Nivel</option>
+                            <option *ngFor="let resp of materias" [value]="resp.COD_NIVEL_EDUCATIVO">
+                                {{ resp.NOMBRE }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
 </div>
 
