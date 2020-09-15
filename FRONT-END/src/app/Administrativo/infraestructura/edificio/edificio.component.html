@@ -1,10 +1,159 @@
-<p>edificio works!</p>
 <div class="p-grid">
     <div class="p-col-12">
         <div class="card">
-            <h1>Empty Page</h1>
-            <p>Use this page to start from scratch and place your custom content.</p>
-            <button type="button" routerLink="/" pButton label="Home" style="display:inline-block;margin-top:5px"></button>
+            <p-toast></p-toast>
+            <p-confirmDialog header="Confirmación" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+            <h1 style="margin-top: 3em">Gestión Edificios</h1>
+            <div>
+                <p-menubar [model]="items"></p-menubar>
+            </div>
+            <p-table [columns]="cols" [value]="edificios" selectionMode="single" [(selection)]="selectedEdificio"
+                dataKey="COD_EDIFICIO" styleClass="ui-table-borderless" [paginator]="true" [rows]="10"
+                [responsive]="true">
+                <ng-template pTemplate="caption">
+                    Tabla de Edificio
+                </ng-template>
+
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-edificios let-columns="columns">
+                    <tr [pSelectableRow]="edificios">
+                        <td *ngFor="let col of columns">
+                            <span class="ui-column-title">{{col.header}}</span>
+                            {{edificios[col.field]}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+            <p-dialog header="Nuevo Edificio" [(visible)]="displaySaveDialog" [modal]="true" [style]="{width: '600px'}">
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12">
+                        <div class="ui.g-4">
+                            <label for="codEdi">Codigo de Edificio</label>
+                        </div>
+                        <div class="ui.g-8">
+                            <input type="text" pInputText id="codEdi" placeholder="EDI##"
+                                [(ngModel)]="edificio.COD_EDIFICIO" required autofocus />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui.g-4">
+                            <label for="codSede">Codigo de Sede</label>
+                        </div>
+                        <div class="ui.g-8">
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="codSede" [(ngModel)]="edificio.COD_SEDE">
+                                    <option *ngFor="let item of sedes" [value]="item.COD_SEDE">
+                                        {{item.NOMBRE}}</option>
+                                </select>
+                            </div>
+
+                            <!-- <p-dropdown [options]="sedes" [(ngModel)]="edificio"
+                                placeholder="Seleccione una Sede"  optionLabel="COD_SEDE" >
+                            </p-dropdown>
+                            <p>edificio.COD_SEDE: {{edificio ? edificio.COD_SEDE : 'none'}}</p> -->
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui.g-4">
+                            <label for="nombre">Nombre</label>
+                        </div>
+                        <div class="ui.g-8">
+                            <input type="text" pInputText id="nombre" [(ngModel)]="edificio.NOMBRE" required
+                                autofocus />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui.g-4">
+                            <label for="pisos">Cantidad de pisos</label>
+                        </div>
+                        <div class="ui.g-8">
+                            <input type="number" pInputText id="pisos" [(ngModel)]="edificio.CANTIDAD_PISOS"
+                                placeholder="1" required autofocus />
+                        </div>
+                    </div>
+
+
+                </div>
+                <p-footer>
+                    <div class="p-grid form-group">
+                        <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text"
+                            (click)="hideDialog()"></button>
+                        <button pButton pRipple label="Guardar" icon="pi pi-check" class="p-button-text"
+                            (click)="guardarEdificio()"></button>
+                    </div>
+                </p-footer>
+            </p-dialog>
+
+            <p-dialog header="Editar Edificio" [(visible)]="displayUpdateDialog" [modal]="true"
+                [style]="{width: '600px'}">
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12">
+                        <div class="ui.g-4">
+                            <label for="codEdi">Codigo de Edificio</label>
+                        </div>
+                        <div class="ui.g-8">
+                            <input type="text" pInputText id="codEdi" placeholder="EDI##" [disabled]="true"
+                                [(ngModel)]="edificio.COD_EDIFICIO" required autofocus />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui.g-4">
+                            <label for="codSede">Codigo de Sede</label>
+                        </div>
+                        <div class="ui.g-8">
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="codSede" [(ngModel)]="edificio.COD_SEDE">
+                                    <option *ngFor="let item of sedes" [value]="item.COD_SEDE">
+                                        {{item.NOMBRE}}</option>
+                                </select>
+
+                            </div>
+
+                            <!-- <p-dropdown [options]="sedes" [(ngModel)]="edificio"
+                                placeholder="Seleccione una Sede"  optionLabel="COD_SEDE" >
+                            </p-dropdown>
+                            <p>edificio.COD_SEDE: {{edificio ? edificio.COD_SEDE : 'none'}}</p> -->
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui.g-4">
+                            <label for="nombre">Nombre</label>
+                        </div>
+                        <div class="ui.g-8">
+                            <input type="text" pInputText id="nombre" [(ngModel)]="edificio.NOMBRE" required
+                                autofocus />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui.g-4">
+                            <label for="pisos">Cantidad de pisos</label>
+                        </div>
+                        <div class="ui.g-8">
+                            <input type="number" pInputText id="pisos" [(ngModel)]="edificio.CANTIDAD_PISOS"
+                                placeholder="1" required autofocus />
+                        </div>
+                    </div>
+
+                </div>
+                <p-footer>
+                    <div class="p-grid form-group">
+                        <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text"
+                            (click)="hideDialog()"></button>
+                        <button pButton pRipple label="Actualizar" icon="pi pi-check" class="p-button-text"
+                            (click)="actualizarEdificio()"></button>
+                    </div>
+                </p-footer>
+            </p-dialog>
         </div>
     </div>
 </div>

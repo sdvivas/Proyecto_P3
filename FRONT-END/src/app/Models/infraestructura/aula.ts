@@ -1,4 +1,4 @@
-export class Edificio {
+export class Aula {
     COD_AULA: String;
     COD_EDIFICIO: String;
     NOMBRE: string;

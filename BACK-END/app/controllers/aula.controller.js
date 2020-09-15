@@ -40,12 +40,12 @@ exports.create = (req, res) => {
 
     const aula = new Aula({
 
-        cod_aula : req.body.cod_aula,
-        cod_edificio: req.body.cod_edificio,
-        nombre: req.body.nombre,
-        capacidad : req.body.capacidad,
-        tipo : req.body.tipo,
-        piso : req.body.piso
+        COD_AULA : req.body.COD_AULA,
+        COD_EDIFICIO: req.body.COD_EDIFICIO,
+        NOMBRE: req.body.NOMBRE,
+        CAPACIDAD : req.body.CAPACIDAD,
+        TIPO : req.body.TIPO,
+        PISO : req.body.PISO
 
     });
 

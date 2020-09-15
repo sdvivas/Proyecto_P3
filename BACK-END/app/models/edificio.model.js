@@ -1,10 +1,10 @@
 const sql = require("../database.js");
 
 const Edificio = function (edificio) {
-    this.cod_edificio = edificio.cod_edificio;
-    this.cod_sede = edificio.cod_sede;
-    this.nombre = edificio.nombre;
-    this.cantidad_pisos = edificio.cantidad_pisos;
+    this.cod_edificio = edificio.COD_EDIFICIO;
+    this.cod_sede = edificio.COD_SEDE;
+    this.nombre = edificio.NOMBRE;
+    this.cantidad_pisos = edificio.CANTIDAD_PISOS;
 
 };
 

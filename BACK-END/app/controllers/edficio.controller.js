@@ -41,10 +41,11 @@ exports.create = (req, res) => {
     }
 
     const edificio = new Edificio({
-        cod_edificio : req.body.cod_edificio,
-        cod_sede: req.body.cod_sede,
-        nombre: req.body.nombre,
-        cantidad_pisos : req.body.cantidad_pisos
+
+        COD_EDIFICIO: req.body.COD_EDIFICIO,
+        COD_SEDE: req.body.COD_SEDE,
+        NOMBRE: req.body.NOMBRE,
+        CANTIDAD_PISOS: req.body.CANTIDAD_PISOS
 
     });
 

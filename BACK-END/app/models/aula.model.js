@@ -1,12 +1,12 @@
 const sql = require("../database.js");
 
 const Aula = function (aula) {
-    this.cod_aula = aula.cod_aula;
-    this.cod_edificio = aula.cod_edificio;
-    this.nombre = aula.nombre;
-    this.capacidad = aula.capacidad;
-    this.tipo = aula.tipo;
-    this.piso = aula.piso;
+    this.cod_aula = aula.COD_AULA;
+    this.cod_edificio = aula.COD_EDIFICIO;
+    this.nombre = aula.NOMBRE;
+    this.capacidad = aula.CAPACIDAD;
+    this.tipo = aula.TIPO;
+    this.piso = aula.PISO;
 };
 
 
