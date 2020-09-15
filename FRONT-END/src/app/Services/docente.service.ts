@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Materia } from '../Models/docente/materia';
+import { TareaAsignatura } from '../Models/docente/tarea_asignatura';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +22,10 @@ export class DocenteService {
   }
   getNivelDocentes(codDocente: String) : Observable<any>{
     return this.http.get(this.Url+"/docente/nivel/"+codDocente);
+  }
+
+  nuevaTarea(nuevaTarea: TareaAsignatura): Observable<any>{
+    
+    return this.http.post(this.Url+"/docente/nueva_tarea", nuevaTarea);
   }
 }

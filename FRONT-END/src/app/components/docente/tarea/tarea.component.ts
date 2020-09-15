@@ -55,11 +55,12 @@ export class TareaComponent implements OnInit {
 
   nuevaTarea: TareaAsignatura = {
     COD_TAREA_ASIGNATURA: null,
+    COD_NIVEL_EDUCATIVO: null,
     COD_ASIGNATURA: null,
-    COD_PERIODO_LECTIVO: null,
-    COD_PARALELO: null,
-    COD_DOCENTE: null,
-    COD_QUIMESTRE: null,
+    COD_PERIODO_LECTIVO: 'P12020',
+    COD_PARALELO: 'PAR02',
+    COD_DOCENTE: '9',
+    COD_QUIMESTRE: '1',
     DETALLE_TAREA: null
   }
 
@@ -71,8 +72,16 @@ export class TareaComponent implements OnInit {
 
   insertarNuevaTarea(){
     console.log("Ingreso");
-    this.messageService.add({ severity: 'success', summary: 'Resultado', detail: 'Se guardo Edificio correctamente' });
+
+    console.log(this.nuevaTarea);
+
+    this.docenteService.nuevaTarea(this.nuevaTarea).subscribe(data =>{
+      this.messageService.add({ severity: 'success', summary: 'Resultado', detail: 'Se guardo la nueva tarea correctamente' });
       this.displaySaveDialog = false;
+    },error =>{
+      this.displaySaveDialog = false;
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Tarea no pudo ser guardada ' });
+    });      
   }
 
   getMaterias(codDocente:String) {

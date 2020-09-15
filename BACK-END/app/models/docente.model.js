@@ -29,7 +29,7 @@ Tarea_Asignatura.insertar_tarea = (nueva_Tarea, result) => {
 
 Tarea_Asignatura.buscarMaterias = (cod_docente, result) => {
     sql.query("SELECT TAREA.COD_NIVEL_EDUCATIVO, NIVEL.NOMBRE FROM TAREA_ASIGNATURA TAREA INNER " +
-        "JOIN NIVEL_EDUCATIVO NIVEL ON TAREA.COD_NIVEL_EDUCATIVO = NIVEL.COD_NIVEL_EDUCATIVO WHERE TAREA.COD_DOCENTE = ? " +
+        "JOIN NIVEL_EDUCATIVO NIVEL ON TAREA.COD_NIVEL_EDUCATIVO = NIVEL.COD_NIVEL_EDUCATIVO WHERE TAREA.COD_DOCENTE = 9 " +
         " GROUP BY TAREA.COD_NIVEL_EDUCATIVO", cod_docente, (err, res) => {
             if (err) {
                 console.log("error: ", err);
