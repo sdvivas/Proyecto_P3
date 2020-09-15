@@ -19,6 +19,7 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {ChipsModule} from 'primeng/chips';
 import {CodeHighlighterModule} from 'primeng/codehighlighter';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {ContextMenuModule} from 'primeng/contextmenu';
 import {DataViewModule} from 'primeng/dataview';
@@ -113,6 +114,7 @@ import {BreadcrumbService} from './breadcrumb.service';
 import {MenuService} from './app.menu.service';
 import { SedeComponent } from './Administrativo/infraestructura/sede/sede.component';
 import { LoginComponent } from './components/login/login.component';
+import { MessageService } from 'primeng';
 
 @NgModule({
     imports: [
@@ -219,7 +221,7 @@ import { LoginComponent } from './components/login/login.component';
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-        CarService, CountryService, EventService, NodeService, BreadcrumbService, MenuService
+        CarService, CountryService, EventService, NodeService, BreadcrumbService, MenuService, MessageService, ConfirmationService
     ],
     bootstrap: [AppComponent]
 })

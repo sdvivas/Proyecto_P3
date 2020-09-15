@@ -39,11 +39,11 @@ exports.create = (req, res) => {
     }
 
     const sede = new Sede({
-        cod_sede: req.body.cod_sede,
-        nombre: req.body.nombre,
-        direccion: req.body.direccion,
-        telefono: req.body.telefono,
-        codigo_postal: req.body.codigo_postal
+        COD_SEDE: req.body.COD_SEDE,
+        NOMBRE: req.body.NOMBRE,
+        DIRECCION: req.body.DIRECCION,
+        TELEFONO: req.body.TELEFONO,
+        CODIGO_POSTAL: req.body.CODIGO_POSTAL
 
     });
 

@@ -1,11 +1,11 @@
 const sql = require("../database.js");
 
 const Sede = function (sede) {
-    this.cod_sede = sede.cod_sede;
-    this.nombre = sede.nombre;
-    this.direccion = sede.direccion;
-    this.telefono = sede.telefono;
-    this.codigo_postal = sede.codigo_postal;
+    this.cod_sede = sede.COD_SEDE;
+    this.nombre = sede.NOMBRE;
+    this.direccion = sede.DIRECCION;
+    this.telefono = sede.TELEFONO;
+    this.codigo_postal = sede.CODIGO_POSTAL;
 };
 
 Sede.getAll = result => {

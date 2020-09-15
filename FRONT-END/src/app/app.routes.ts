@@ -21,10 +21,12 @@ import { AppLoginComponent } from './pages/app.login.component';
 //INIT
 import { NgModule } from '@angular/core';
 import { LoginComponent } from "./components/login/login.component";
+import { SedeComponent } from './Administrativo/infraestructura/sede/sede.component';
 
 //export const routes: Routes = [
     const routes: Routes = [
-    { path: '', component: AppMainComponent,
+    // { path: '', redirectTo: 'login', pathMatch: 'full' },
+        { path: '', component: AppMainComponent,
         children: [
             { path: '', component: DashboardDemoComponent },
             { path: 'components/sample', component: SampleDemoComponent },
@@ -45,6 +47,7 @@ import { LoginComponent } from "./components/login/login.component";
         path: 'login',
         component: LoginComponent
     },
+     {path: 'admin/sede', component: SedeComponent},
     {path: 'error', component: AppErrorComponent},
     {path: 'accessdenied', component: AppAccessdeniedComponent},
     {path: 'notfound', component: AppNotfoundComponent},

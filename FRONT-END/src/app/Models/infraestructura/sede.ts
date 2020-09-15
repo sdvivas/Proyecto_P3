@@ -1,9 +1,4 @@
-export class Sede{
-    // cod_sede: string;
-    // nombre: string;
-    // direccion: string;
-    // telefono: string;
-    // codigo_postal: string;
+export class Sede {
 
     COD_SEDE: string;
     NOMBRE: string;
