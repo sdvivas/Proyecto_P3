@@ -92,10 +92,10 @@ Tarea_Asignatura.buscarMateriasDocente = (cod_docente, nivel_educativo, result) 
 };
 
 Tarea_Asignatura.listarMaterias = (cod_docente, cod_paralelo, result) => {
-    sql.query(`SELECT * FROM ASIGNATURA a
-        INNER JOIN ASIGNATURA_PERIODO ap WHERE ap.COD_DOCENTE =  ${cod_docente}
-        AND ap.COD_ASIGNATURA = a.COD_ASIGNATURA AND ap.COD_QUIMESTRE = 1
-        AND ap.COD_PARALELO = '${cod_paralelo}'`, (err, res) => {
+    sql.query(`SELECT a.NOMBRE, a.COD_ASIGNATURA FROM ASIGNATURA a
+        INNER JOIN ASIGNATURA_PERIODO ap ON ap.COD_ASIGNATURA = a.COD_ASIGNATURA AND ap.COD_QUIMESTRE=1
+        INNER JOIN ALUMNO_ASIGNATURA_PERIODO sp WHERE sp.COD_ASIGNATURA = ap.COD_ASIGNATURA AND sp.COD_PARALELO = ap.COD_PARALELO
+        AND sp.COD_DOCENTE = ${cod_docente} AND sp.COD_PARALELO = '${cod_paralelo}' AND sp.COD_QUIMESTRE=1;`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result("hola" + err, null);
