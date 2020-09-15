@@ -12,7 +12,44 @@
             <h1 style="margin-top: 3em">Tareas</h1>
             <div>
                 <p-menubar [model]="items"></p-menubar>
+            </div> <br> <br>
+            <div class="p-grid">
+                <div class="p-col-12 p-md-1">
+                    <label for="Materia">Nivel Educativo</label>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <select #materia name="materia" (change)="onchange($event)">
+                        <option hidden selected>Seleccione un Nivel</option>
+                        <option *ngFor="let resp of materias" [value]="resp.COD_NIVEL_EDUCATIVO">
+                            {{ resp.NOMBRE }}</option>
+                    </select>
+                </div>
+
+                <p-table [columns]="cols" [value]="tarea" selectionMode="single" [(selection)]= "selectedSede" dataKey="COD_TAREA_ASIGNATURA" styleClass="ui-table-borderless"
+                [paginator]="true" [rows]="10" [responsive]="true">
+                <ng-template pTemplate="caption">
+                    Listado de Tareas
+                </ng-template>
+
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-tarea let-columns="columns">
+                    <tr [pSelectableRow]="tarea">
+                        <td *ngFor="let col of columns">
+                            <span class="ui-column-title">{{col.header}}</span>
+                            {{tarea[col.field]}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
             </div>
+            
         </div>
     </div>
 </div>

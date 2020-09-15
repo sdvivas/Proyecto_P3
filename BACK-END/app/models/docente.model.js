@@ -42,5 +42,20 @@ Tarea_Asignatura.buscarMaterias = (cod_docente, result) => {
 
     });
 };
+Tarea_Asignatura.buscarTareas = (cod_docente, cod_nivel_educativo, result) => {
+    sql.query(`SELECT ASI.NOMBRE, TAREA.COD_TAREA_ASIGNATURA, TAREA.DETALLE_TAREA FROM TAREA_ASIGNATURA TAREA `+
+    `INNER JOIN ASIGNATURA ASI ON TAREA.COD_ASIGNATURA = ASI.COD_ASIGNATURA `+
+    ` WHERE TAREA.COD_DOCENTE = '${cod_docente}' AND TAREA.COD_NIVEL_EDUCATIVO = '${cod_nivel_educativo}'`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result("hola"+err, null);
+            return;
+        }else {
+            console.log("Tareas: ", res);
+            result(null, res);
+        }
+
+    });
+};
 
 module.exports = Tarea_Asignatura;

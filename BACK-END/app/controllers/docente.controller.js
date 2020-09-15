@@ -48,3 +48,20 @@ exports.findMaterias = (req, res) => {
         }
     });
 };
+exports.findTareas = (req, res) => {
+    Tarea_Asignatura.buscarTareas(req.params.cod_Docente, req.params.cod_nivel_educativo, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                    message: `Docente  no encontrado con el codigo:  ${req.params.cod_Docente}.`
+                });
+            } else {
+                res.status(500).send({
+                    message: "Error al recuperar edficio con id " + req.params.codAula
+                });
+            }
+        } else {
+            res.send(data);
+        }
+    });
+};
