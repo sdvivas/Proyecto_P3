@@ -115,6 +115,8 @@ import {MenuService} from './app.menu.service';
 import { SedeComponent } from './Administrativo/infraestructura/sede/sede.component';
 import { LoginComponent } from './components/login/login.component';
 import { MessageService } from 'primeng';
+import { EdificioComponent } from './Administrativo/infraestructura/edificio/edificio.component';
+import { AulaComponent } from './Administrativo/infraestructura/aula/aula.component';
 
 @NgModule({
     imports: [
@@ -217,7 +219,9 @@ import { MessageService } from 'primeng';
         FileDemoComponent,
         DocumentationComponent,
         SedeComponent,
-        LoginComponent
+        LoginComponent,
+        EdificioComponent,
+        AulaComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
