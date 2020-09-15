@@ -1,1 +1,31 @@
-<p>navbarestudiante works!</p>
+<div class="layout-topbar">
+    <div class="layout-topbar-logo">
+        <a>
+            <img class="logo" src="assets/layout/images/logo.png" alt="prestige-layout" />
+        </a>
+    </div>
+    <a class="layout-menu-button" href="#">
+        <i class="pi pi-bars"></i>
+    </a>
+
+    <ul class="layout-topbar-menu" role="menu">
+        <li #settings class="layout-topbar-item">
+            <a class="layout-topbar-icon first">
+                <i (click)="logout()" class="topbar-icon pi pi-sign-out"></i>
+            </a>
+            <div class="layout-quickmenu-tooltip">
+                <div class="layout-quickmenu-tooltip-arrow"></div>
+                <div class="layout-quickmenu-tooltip-text">Cerrar Sesión</div>
+            </div>
+        </li>
+        <li #profile class="user-profile" role="menuitem">
+            <a>
+                <div class="user-profile-info profile-link">
+                    <span class="user-profile-name">{{user.APELLIDO}}</span>
+                    <span class="user-profile-role">{{user.NOMBRE}}</span>
+                </div>
+                <img class="logo" src="assets/layout/images/avatar/user.jpg" alt="prestige-layout" />
+            </a>
+        </li>
+    </ul>
+</div>

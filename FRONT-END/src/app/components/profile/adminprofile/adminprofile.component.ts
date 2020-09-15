@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-adminprofile',
@@ -27,10 +29,15 @@ export class AdminprofileComponent implements OnInit {
     TELEFONO: '',
     ULT_FECHA_INGRESO: ''
   }
-  constructor() { }
 
+  constructor(private router: Router) { }
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['login']);
   }
 
 }
