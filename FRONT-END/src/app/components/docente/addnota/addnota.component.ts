@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotaService } from "../../../Services/nota/nota.service";
+import { NivelDocentes  } from "../../../Models/docente/nivelDocente";
+import { Materia } from "../../../Models/docente/materia.interface";
+import { Paralelo } from "../../../Models/docente/paralelo.interface";
+import { Notas } from "../../../Models/docente/nota.interface";
 
 @Component({
   selector: 'app-addnota',
@@ -28,33 +32,29 @@ export class AddnotaComponent implements OnInit {
     TELEFONO: '',
     ULT_FECHA_INGRESO: ''
   }
+  public selectedNivel: NivelDocentes = { COD_NIVEL_EDUCATIVO: '', COD_ASIGNATURA: '', COD_PERIODO_LECTIVO: '', 
+  COD_PARALELO: '', COD_DOCENTE: '', COD_QUIMESTRE: '', COD_AULA: '', NOMBRE: '',
+  NIVEL: ''};
+  public selectedParalelo: Paralelo = {COD_PARALELO: '', NOMBRE: ''};
+  public selectedAsignatura: Materia = {COD_ASIGNATURA: '', NOMBRE: ''};
+
+  public Materia: Materia[];
+  public Nivel: NivelDocentes[];
+  public Paralelo: Paralelo[];
+  public cod_paralelo;
 
   constructor(private router: Router, private notaService: NotaService) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
     this.listNivel();
+    this.listParalelo();
   }
 
   listNivel(){
     this.notaService.listarNivel(this.user.COD_PERSONA).subscribe(data => {
-      //this.sede = data;
-      console.log(data);
-      // let sedes: Sede[] = [];
-      //   for (let i = 0; i < data.length; i++) {
-      //     let sede = data[i] as Sede;
-      //     sedes.push(sede);
-      //   }
-      //   this.sede = sedes;
-    }, error => {
-      console.log(error);
-
-    })
-  }
-
-  listMaterias(){
-    this.notaService.listarAsignatura().subscribe(data => {
-      console.log(data);
+      this.Nivel = data;
+      console.log(this.Nivel);
     }, error => {
       console.log(error);
 
@@ -62,16 +62,27 @@ export class AddnotaComponent implements OnInit {
   }
 
   listParalelo(){
-    this.notaService.listarParalelo().subscribe(data => {
-      console.log(data);
+    this.notaService.listarParalelo(this.user.COD_PERSONA).subscribe(data => {
+      this.Paralelo = data;
+      console.log(this.Paralelo);
     }, error => {
       console.log(error);
 
     })
   }
 
-  listEstudiantes(){
+ /* listEstudiantes(){
     this.notaService.listarEstudiante().subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+
+    })
+  }*/
+
+  onSelect(cod_asignatura){
+    this.notaService.listarAsignatura(this.user.COD_PERSONA,cod_asignatura).subscribe(data => {
+      this.Materia = data;
       console.log(data);
     }, error => {
       console.log(error);

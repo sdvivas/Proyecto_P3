@@ -1,5 +1,5 @@
 export class NivelDocentes {
-    public COD_NIVEL_EDUCATIVO: null;
+    public COD_NIVEL_EDUCATIVO: String;
     public COD_ASIGNATURA: String;
     public COD_PERIODO_LECTIVO: String;
     public COD_PARALELO: String;

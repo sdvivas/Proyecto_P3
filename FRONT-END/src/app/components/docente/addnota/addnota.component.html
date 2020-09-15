@@ -1,1 +1,17 @@
-<p>addnota works!</p>
+<select [(ngModel)]="selectedNivel.COD_NIVEL_EDUCATIVO">
+    <option *ngFor="let nivel of Nivel" value={{nivel.COD_NIVEL_EDUCATIVO}}>
+        {{nivel.NOMBRE}}
+    </option>
+</select>
+
+<select [(ngModel)]="selectedParalelo" (change)="onSelect($event.target.value)">
+    <option *ngFor="let paralelo of Paralelo" value={{paralelo.COD_PARALELO}}>
+        {{paralelo.NOMBRE}}
+    </option>
+</select>
+
+<select [(ngModel)]="selectedAsignatura">
+    <option *ngFor="let materia of Materia" value={{materia.COD_ASIGNATURA}}>
+        {{materia.NOMBRE}}
+    </option>
+</select>
