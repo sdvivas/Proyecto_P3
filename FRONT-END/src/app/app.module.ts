@@ -118,8 +118,6 @@ import { MessageService } from 'primeng';
 import { EdificioComponent } from './Administrativo/infraestructura/edificio/edificio.component';
 import { AulaComponent } from './Administrativo/infraestructura/aula/aula.component';
 import { NuevaTareaComponent } from './docente/nueva-tarea/nueva-tarea.component';
-import { DocenteComponent } from './Services/docente/docente.component';
-import { EstudianteComponent } from './Models/estudiante/estudiante.component';
 
 @NgModule({
     imports: [
@@ -225,9 +223,7 @@ import { EstudianteComponent } from './Models/estudiante/estudiante.component';
         LoginComponent,
         EdificioComponent,
         AulaComponent,
-        NuevaTareaComponent,
-        DocenteComponent,
-        EstudianteComponent
+        NuevaTareaComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
