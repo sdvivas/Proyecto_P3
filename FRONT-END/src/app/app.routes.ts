@@ -32,6 +32,7 @@ import { DocenteprofileComponent } from "./components/profile/docenteprofile/doc
 import { TareaComponent } from './components/docente/tarea/tarea.component';
 import { AddnotaComponent } from "./components/docente/addnota/addnota.component";
 import { ListnotaComponent } from "./components/docente/listnota/listnota.component";
+import { LandingComponent } from './landingPage/landing/landing.component';
 
 //export const routes: Routes = [
 const routes: Routes = [
@@ -54,6 +55,7 @@ const routes: Routes = [
             { path: 'documentation', component: DocumentationComponent }
         ]
     },
+    { path: 'inicio', component: LandingComponent },
     { path: 'login', component: LoginComponent },
     { path: 'admin', component: AdminprofileComponent },
     { path: 'estudiante', component: EstudianteprofileComponent },

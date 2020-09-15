@@ -130,6 +130,7 @@ import { NavbardocenteComponent } from './components/navegacion/navbardocente/na
 import { TareaComponent } from './components/docente/tarea/tarea.component';
 import { AddnotaComponent } from './components/docente/addnota/addnota.component';
 import { ListnotaComponent } from './components/docente/listnota/listnota.component';
+import { LandingComponent } from './landingPage/landing/landing.component';
 
 @NgModule({
     imports: [
@@ -246,7 +247,8 @@ import { ListnotaComponent } from './components/docente/listnota/listnota.compon
         NavbardocenteComponent,
         TareaComponent,
         AddnotaComponent,
-        ListnotaComponent
+        ListnotaComponent,
+        LandingComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
