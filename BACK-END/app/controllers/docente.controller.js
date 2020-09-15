@@ -31,6 +31,7 @@ exports.nueva_tarea = (req, res) => {
 };
 
 exports.findMaterias = (req, res) => {
+    
     Tarea_Asignatura.buscarMaterias(req.body.cod_Docente, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
