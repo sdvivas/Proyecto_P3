@@ -124,6 +124,9 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
 import { AdminprofileComponent } from './components/profile/adminprofile/adminprofile.component';
 import { EstudianteprofileComponent } from './components/profile/estudianteprofile/estudianteprofile.component';
 import { DocenteprofileComponent } from './components/profile/docenteprofile/docenteprofile.component';
+import { NavbaradminComponent } from './components/navegacion/navbaradmin/navbaradmin.component';
+import { NavbarestudianteComponent } from './components/navegacion/navbarestudiante/navbarestudiante.component';
+import { NavbardocenteComponent } from './components/navegacion/navbardocente/navbardocente.component';
 
 @NgModule({
     imports: [
@@ -234,7 +237,10 @@ import { DocenteprofileComponent } from './components/profile/docenteprofile/doc
         EstudianteComponent,
         AdminprofileComponent,
         EstudianteprofileComponent,
-        DocenteprofileComponent
+        DocenteprofileComponent,
+        NavbaradminComponent,
+        NavbarestudianteComponent,
+        NavbardocenteComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
