@@ -24,6 +24,8 @@ import { LoginComponent } from "./components/login/login.component";
 import { SedeComponent } from './Administrativo/infraestructura/sede/sede.component';
 import { EdificioComponent } from './Administrativo/infraestructura/edificio/edificio.component';
 import { AulaComponent } from './Administrativo/infraestructura/aula/aula.component';
+import { DocenteComponent } from './components/docente/docente.component';
+import { EstudianteComponent } from './components/estudiante/estudiante.component';
 
 //export const routes: Routes = [
 const routes: Routes = [
@@ -53,6 +55,8 @@ const routes: Routes = [
     { path: 'admin/sede', component: SedeComponent },
     { path: 'admin/edificio', component: EdificioComponent },
     { path: 'admin/aula', component: AulaComponent },
+    { path: 'doc/nueva_tarea', component: DocenteComponent },
+    { path: 'est/ver_notas', component: EstudianteComponent },
     { path: 'error', component: AppErrorComponent },
     { path: 'accessdenied', component: AppAccessdeniedComponent },
     { path: 'notfound', component: AppNotfoundComponent },

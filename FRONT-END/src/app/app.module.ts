@@ -119,6 +119,9 @@ import { EdificioComponent } from './Administrativo/infraestructura/edificio/edi
 import { AulaComponent } from './Administrativo/infraestructura/aula/aula.component';
 import { NuevaTareaComponent } from './docente/nueva-tarea/nueva-tarea.component';
 
+import { DocenteComponent } from './components/docente/docente.component';
+import { EstudianteComponent } from './components/estudiante/estudiante.component';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -223,7 +226,9 @@ import { NuevaTareaComponent } from './docente/nueva-tarea/nueva-tarea.component
         LoginComponent,
         EdificioComponent,
         AulaComponent,
-        NuevaTareaComponent
+        NuevaTareaComponent,
+        DocenteComponent,
+        EstudianteComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
