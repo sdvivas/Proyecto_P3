@@ -28,9 +28,19 @@ export class LoginComponent implements OnInit {
           console.log("Datos erroneos");
         }else{
           console.log(res.APELLIDO);
-          console.log(this.auth.username);
-          this.router.navigate(['']);//profile
-        }  
+          if(res.COD_ROL == "EST"){
+            localStorage.setItem('user', JSON.stringify(res));
+            this.router.navigate(['estudiante']);//profile
+          }else{
+            if(res.COD_ROL == "DOC"){
+              localStorage.setItem('user', JSON.stringify(res));
+              this.router.navigate(['docente']);//profile
+            }else{
+              localStorage.setItem('user', JSON.stringify(res));
+              this.router.navigate(['admin']);//profile
+            }
+          }
+        }
       },
       err => console.log(err)
     )

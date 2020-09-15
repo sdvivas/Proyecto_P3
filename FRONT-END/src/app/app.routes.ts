@@ -26,6 +26,9 @@ import { EdificioComponent } from './Administrativo/infraestructura/edificio/edi
 import { AulaComponent } from './Administrativo/infraestructura/aula/aula.component';
 import { DocenteComponent } from './components/docente/docente.component';
 import { EstudianteComponent } from './components/estudiante/estudiante.component';
+import { AdminprofileComponent } from "./components/profile/adminprofile/adminprofile.component";
+import { EstudianteprofileComponent } from "./components/profile/estudianteprofile/estudianteprofile.component";
+import { DocenteprofileComponent } from "./components/profile/docenteprofile/docenteprofile.component";
 
 //export const routes: Routes = [
 const routes: Routes = [
@@ -48,10 +51,10 @@ const routes: Routes = [
             { path: 'documentation', component: DocumentationComponent }
         ]
     },
-    {
-        path: 'login',
-        component: LoginComponent
-    },
+    { path: 'login', component: LoginComponent },
+    { path: 'admin', component: AdminprofileComponent },
+    { path: 'estudiante', component: EstudianteprofileComponent },
+    { path: 'docente', component: DocenteprofileComponent },
     { path: 'admin/sede', component: SedeComponent },
     { path: 'admin/edificio', component: EdificioComponent },
     { path: 'admin/aula', component: AulaComponent },

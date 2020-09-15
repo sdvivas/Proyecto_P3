@@ -121,6 +121,9 @@ import { NuevaTareaComponent } from './docente/nueva-tarea/nueva-tarea.component
 
 import { DocenteComponent } from './components/docente/docente.component';
 import { EstudianteComponent } from './components/estudiante/estudiante.component';
+import { AdminprofileComponent } from './components/profile/adminprofile/adminprofile.component';
+import { EstudianteprofileComponent } from './components/profile/estudianteprofile/estudianteprofile.component';
+import { DocenteprofileComponent } from './components/profile/docenteprofile/docenteprofile.component';
 
 @NgModule({
     imports: [
@@ -228,7 +231,10 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
         AulaComponent,
         NuevaTareaComponent,
         DocenteComponent,
-        EstudianteComponent
+        EstudianteComponent,
+        AdminprofileComponent,
+        EstudianteprofileComponent,
+        DocenteprofileComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
