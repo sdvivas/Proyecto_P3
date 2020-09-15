@@ -7,6 +7,7 @@
     <a class="layout-menu-button" href="#">
         <i class="pi pi-bars"></i>
     </a>
+    
 
     <ul class="layout-topbar-menu" role="menu">
         <li #settings class="layout-topbar-item">
@@ -17,6 +18,7 @@
                 <div class="layout-quickmenu-tooltip-arrow"></div>
                 <div class="layout-quickmenu-tooltip-text">Cerrar Sesión</div>
             </div>
+            
         </li>
         <li #profile class="user-profile" role="menuitem">
             <a>
@@ -28,4 +30,33 @@
             </a>
         </li>
     </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mr-auto">
+                <!-- <router-outlet></router-outlet> -->
+                <li class="nav-item ">
+                    <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="router-link-active">Inicio
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" [routerLink]="['/admin/sede']" routerLinkActive="router-link-active">Gestión Sedes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/admin/edificio']" routerLinkActive="router-link-active">Gestión
+                        Edificio</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" [routerLink]="['/admin/aula']" routerLinkActive="router-link-active">Gestión
+                        Aulas</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" [routerLink]="['']" routerLinkActive="router-link-active">Asistencia</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
 </div>

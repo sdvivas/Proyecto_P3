@@ -1,3 +1,8 @@
+<div class="layout-wrapper layout-blue layout-menu-horizontal" ng-reflect-klass="layout-blue"
+    ng-reflect-ng-class="[object Object]">
+
+    
+<app-navbaradmin></app-navbaradmin>
 <div class="p-grid">
     <div class="p-col-12">
         <div class="card">
@@ -50,7 +55,8 @@
                         </div>
                         <div class="ui.g-8">
                             <div class="form-group">
-                                <select class="browser-default custom-select" id="codSede" [(ngModel)]="edificio.COD_SEDE">
+                                <select class="browser-default custom-select" id="codSede"
+                                    [(ngModel)]="edificio.COD_SEDE">
                                     <option *ngFor="let item of sedes" [value]="item.COD_SEDE">
                                         {{item.NOMBRE}}</option>
                                 </select>
@@ -112,7 +118,8 @@
                         </div>
                         <div class="ui.g-8">
                             <div class="form-group">
-                                <select class="browser-default custom-select" id="codSede" [(ngModel)]="edificio.COD_SEDE">
+                                <select class="browser-default custom-select" id="codSede"
+                                    [(ngModel)]="edificio.COD_SEDE">
                                     <option *ngFor="let item of sedes" [value]="item.COD_SEDE">
                                         {{item.NOMBRE}}</option>
                                 </select>
@@ -156,4 +163,7 @@
             </p-dialog>
         </div>
     </div>
+</div>
+
+
 </div>
