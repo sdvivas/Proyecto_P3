@@ -5,5 +5,8 @@ module.exports = app => {
     app.get("/docente/:cod_Docente/materias", docente.findMaterias);
     app.get("/docente/:cod_Docente/:cod_nivel_educativo/tareas", docente.findTareas);
     app.get("/docente/nivel/:cod_docente", docente.findNivelDocente);
+    app.get("/docente/paralelo", docente.listParalelo);
+    app.get("/docente/asignatura", docente.listMaterias);
+    app.get("/docente/estudiantes", docente.listEstudiante);
     app.get("/docente/materias/:cod_nivel_educativo/:cod_docente", docente.findMateriasDocente);
 };
