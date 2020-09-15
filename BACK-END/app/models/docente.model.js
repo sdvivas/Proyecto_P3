@@ -141,4 +141,25 @@ Tarea_Asignatura.listarParalelo = (cod_docente, result) => {
     });
 };
 
+Tarea_Asignatura.updateNota = (nota, result) => {
+    sql.query(
+        "UPDATE ALUMNO_ASIGNATURA_PERIODO SET NOTA1=?, NOTA2=?, NOTA3=? WHERE COD_ALUMNO= ? AND COD_ASIGNATURA=? AND COD_DOCENTE=? AND COD_QUIMESTRE='1'", [nota.nota1, nota.nota2, nota.nota3, nota.cod_alumno, nota.cod_asignatura, nota.cod_docente],
+        (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                result(null, err);
+                return;
+            }
+
+            if (res.affectedRows == 0) {
+                result({ kind: "not_found" }, null);
+                return;
+            } else {
+                result(null, { cod: nota.cod_docente, ...nota });
+            }
+
+        }
+    );
+};
+
 module.exports = Tarea_Asignatura;

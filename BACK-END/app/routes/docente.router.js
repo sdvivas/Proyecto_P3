@@ -9,4 +9,5 @@ module.exports = app => {
     app.get("/docente/asignatura/:cod_docente/:cod_paralelo", docente.listMaterias);
     app.get("/docente/estudiantes/:cod_docente/:cod_asignatura/:cod_paralelo/:cod_nivel_educativo", docente.listEstudiante);
     app.get("/docente/materias/:cod_nivel_educativo/:cod_docente", docente.findMateriasDocente);
+    app.put("/docente/nota", docente.updateNota);
 };

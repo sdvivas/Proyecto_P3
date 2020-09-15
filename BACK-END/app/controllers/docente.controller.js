@@ -155,3 +155,38 @@ exports.listParalelo = (req, res) => {
         }
     });
 };
+
+exports.updateNota = (req, res) => {
+    if (!req.body) {
+        res.status(400).send({
+            message: "Conteniedo no puede estar vacio!"
+        });
+    }
+    const nota = {
+        nota1: req.body.nota1,
+        nota2: req.body.nota2,
+        nota3: req.body.nota3,
+        cod_alumno: req.body.cod_alumno,
+        cod_asignatura: req.body.cod_asignatura,
+        cod_docente: req.body.cod_docente
+    }
+    Tarea_Asignatura.updateNota(
+        nota,
+        (err, data) => {
+            if (err) {
+                if (err.kind === "not_found") {
+                    res.status(404).send({
+                        message: `No se se encuentra la sede con el id: ${nota.cod_docente}.`
+                    });
+                } else {
+                    res.status(500).send({
+                        message: "Error al actualizar sede con el id " + nota.cod_docente
+                    });
+                }
+            } else {
+                res.send(data);
+            }
+
+        }
+    );
+};
