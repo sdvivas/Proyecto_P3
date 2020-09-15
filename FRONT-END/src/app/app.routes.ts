@@ -30,6 +30,8 @@ import { AdminprofileComponent } from "./components/profile/adminprofile/adminpr
 import { EstudianteprofileComponent } from "./components/profile/estudianteprofile/estudianteprofile.component";
 import { DocenteprofileComponent } from "./components/profile/docenteprofile/docenteprofile.component";
 import { TareaComponent } from './components/docente/tarea/tarea.component';
+import { AddnotaComponent } from "./components/docente/addnota/addnota.component";
+import { ListnotaComponent } from "./components/docente/listnota/listnota.component";
 
 //export const routes: Routes = [
 const routes: Routes = [
@@ -56,6 +58,8 @@ const routes: Routes = [
     { path: 'admin', component: AdminprofileComponent },
     { path: 'estudiante', component: EstudianteprofileComponent },
     { path: 'docente', component: DocenteprofileComponent },
+    { path: 'docente/addnota', component: AddnotaComponent },
+    { path: 'docente/listnota', component: ListnotaComponent },
     { path: 'admin/sede', component: SedeComponent },
     { path: 'admin/edificio', component: EdificioComponent },
     { path: 'admin/aula', component: AulaComponent },
