@@ -59,7 +59,7 @@ const routes: Routes = [
     { path: 'admin/sede', component: SedeComponent },
     { path: 'admin/edificio', component: EdificioComponent },
     { path: 'admin/aula', component: AulaComponent },
-    { path: 'doc/nueva_tarea', component: DocenteComponent },
+    { path: 'doc/perfil', component: DocenteComponent },
     { path: 'doc/tarea', component: TareaComponent },
     { path: 'est/ver_notas', component: EstudianteComponent },
     { path: 'error', component: AppErrorComponent },
