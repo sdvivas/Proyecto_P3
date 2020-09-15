@@ -22,11 +22,14 @@ import { AppLoginComponent } from './pages/app.login.component';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from "./components/login/login.component";
 import { SedeComponent } from './Administrativo/infraestructura/sede/sede.component';
+import { EdificioComponent } from './Administrativo/infraestructura/edificio/edificio.component';
+import { AulaComponent } from './Administrativo/infraestructura/aula/aula.component';
 
 //export const routes: Routes = [
-    const routes: Routes = [
+const routes: Routes = [
     // { path: '', redirectTo: 'login', pathMatch: 'full' },
-        { path: '', component: AppMainComponent,
+    {
+        path: '', component: AppMainComponent,
         children: [
             { path: '', component: DashboardDemoComponent },
             { path: 'components/sample', component: SampleDemoComponent },
@@ -47,13 +50,15 @@ import { SedeComponent } from './Administrativo/infraestructura/sede/sede.compon
         path: 'login',
         component: LoginComponent
     },
-     {path: 'admin/sede', component: SedeComponent},
-    {path: 'error', component: AppErrorComponent},
-    {path: 'accessdenied', component: AppAccessdeniedComponent},
-    {path: 'notfound', component: AppNotfoundComponent},
-    {path: 'login2', component: AppLoginComponent},
-    {path: '**', redirectTo: '/notfound'},
-    
+    { path: 'admin/sede', component: SedeComponent },
+    { path: 'admin/edificio', component: EdificioComponent },
+    { path: 'admin/aula', component: AulaComponent },
+    { path: 'error', component: AppErrorComponent },
+    { path: 'accessdenied', component: AppAccessdeniedComponent },
+    { path: 'notfound', component: AppNotfoundComponent },
+    { path: 'login2', component: AppLoginComponent },
+    { path: '**', redirectTo: '/notfound' },
+
 ];
 
 @NgModule({
