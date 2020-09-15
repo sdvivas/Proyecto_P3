@@ -1,0 +1,45 @@
+<div class="layout-wrapper layout-blue layout-menu-horizontal" ng-reflect-klass="layout-blue"
+    ng-reflect-ng-class="[object Object]">
+
+
+    <app-navbaradmin></app-navbaradmin>
+    
+    <div class="p-grid">
+        <div class="p-col-12">
+            <div class="card">
+                <p-toast></p-toast>
+                <p-confirmDialog header="Confirmación" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+                <h1 style="margin-top: 3em">Asistencia de alumnos</h1>
+                <div>
+                    <p-menubar [model]="items"></p-menubar>
+                </div>
+                <p-table [columns]="cols" [value]="aulas" selectionMode="single" [(selection)]="selectedAula"
+                    dataKey="COD_AULA" styleClass="ui-table-borderless" [paginator]="true" [rows]="10"
+                    [responsive]="true">
+                    <ng-template pTemplate="caption">
+                        Tabla de Asistencia
+                    </ng-template>
+
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                {{col.header}}
+                                <p-sortIcon [field]="col.field"></p-sortIcon>
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-aulas let-columns="columns">
+                        <tr [pSelectableRow]="aulas">
+                            <td *ngFor="let col of columns">
+                                <span class="ui-column-title">{{col.header}}</span>
+                                {{aulas[col.field]}}
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+
+            </div>
+        </div>
+    </div>
+
+</div>

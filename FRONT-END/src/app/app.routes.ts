@@ -33,6 +33,7 @@ import { TareaComponent } from './components/docente/tarea/tarea.component';
 import { AddnotaComponent } from "./components/docente/addnota/addnota.component";
 import { ListnotaComponent } from "./components/docente/listnota/listnota.component";
 import { LandingComponent } from './landingPage/landing/landing.component';
+import { AsistenciaComponent } from './Administrativo/infraestructura/asistencia/asistencia.component';
 
 //export const routes: Routes = [
 const routes: Routes = [
@@ -65,6 +66,7 @@ const routes: Routes = [
     { path: 'admin/sede', component: SedeComponent },
     { path: 'admin/edificio', component: EdificioComponent },
     { path: 'admin/aula', component: AulaComponent },
+    { path: 'admin/asistencia', component: AsistenciaComponent },
     { path: 'doc/perfil', component: DocenteComponent },
     { path: 'doc/tarea', component: TareaComponent },
     { path: 'est/ver_notas', component: EstudianteComponent },
