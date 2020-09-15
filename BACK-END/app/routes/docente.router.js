@@ -1,6 +1,7 @@
 module.exports = app => {
     const docente = require("../controllers/docente.controller");
 
-    app.post("/nueva_tarea", docente.nueva_tarea);
+    app.post("/docente/nueva_tarea", docente.nueva_tarea);
+    app.get("/docente/:cod_Docente/materias", docente.findMaterias);
 
 };

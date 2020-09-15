@@ -6,7 +6,8 @@ const Estudiante = function (estudiante) {
 
 
 Estudiante.buscarNotas = (cod_alumno,cod_asignatura,cod_quimestre, result) => {
-    sql.query("SELECT * FROM ALUMNO_ASIGNATURA_PERIODO WHERE COD_PERIODO_LECTIVO = 'P12020' AND COD_ALUMNO = '6' AND COD_ASIGNATURA = 'AS02' AND COD_QUIMESTRE = '1'", (err, res) => {
+    sql.query("SELECT * FROM ALUMNO_ASIGNATURA_PERIODO WHERE COD_PERIODO_LECTIVO = "+
+    "'P12020' AND COD_ALUMNO = '6' AND COD_ASIGNATURA = 'AS02' AND COD_QUIMESTRE = '1'", (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
