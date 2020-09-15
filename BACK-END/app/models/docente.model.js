@@ -58,4 +58,37 @@ Tarea_Asignatura.buscarTareas = (cod_docente, cod_nivel_educativo, result) => {
     });
 };
 
+Tarea_Asignatura.buscarNivelDocente = (cod_docente, result) => {
+    sql.query(`SELECT * FROM ASIGNATURA_PERIODO ASP `+
+    `INNER JOIN NIVEL_EDUCATIVO NIV ON NIV.COD_NIVEL_EDUCATIVO = ASP.COD_NIVEL_EDUCATIVO `+
+    ` WHERE COD_DOCENTE = ${cod_docente} GROUP BY ASP.COD_NIVEL_EDUCATIVO`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result("hola"+err, null);
+            return;
+        }else {
+            console.log("Tareas: ", res);
+            result(null, res);
+        }
+
+    });
+};
+
+Tarea_Asignatura.buscarMateriasDocente = (cod_docente, nivel_educativo, result) => {
+    sql.query(`SELECT * FROM ASIGNATURA_PERIODO ASP `+
+    `INNER JOIN ASIGNATURA ASI ON ASI.COD_ASIGNATURA = ASP.COD_ASIGNATURA`+
+    ` 
+    WHERE COD_DOCENTE = ${cod_docente} AND ASP.COD_NIVEL_EDUCATIVO = '${nivel_educativo}' AND COD_QUIMESTRE = '1' GROUP BY ASP.COD_ASIGNATURA`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result("hola"+err, null);
+            return;
+        }else {
+            console.log("Tareas: ", res);
+            result(null, res);
+        }
+
+    });
+};
+
 module.exports = Tarea_Asignatura;

@@ -17,4 +17,10 @@ export class DocenteService {
   getTareas(codDocente: String, codAsignatura) : Observable<any>{
     return this.http.get(this.Url+"/docente/"+codDocente+"/"+codAsignatura+"/tareas");
   }
+  getMateriasDocentes(codDocente: String, codAsignatura) : Observable<any>{
+    return this.http.get(this.Url+"/docente/materias/"+codAsignatura+"/"+codDocente);
+  }
+  getNivelDocentes(codDocente: String) : Observable<any>{
+    return this.http.get(this.Url+"/docente/nivel/"+codDocente);
+  }
 }

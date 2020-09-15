@@ -57,7 +57,43 @@ exports.findTareas = (req, res) => {
                 });
             } else {
                 res.status(500).send({
-                    message: "Error al recuperar edficio con id " + req.params.codAula
+                    message: "Error al recuperar edficio con id " + req.params.cod_Docente
+                });
+            }
+        } else {
+            res.send(data);
+        }
+    });
+};
+
+exports.findNivelDocente = (req, res) => {
+    Tarea_Asignatura.buscarNivelDocente(req.params.cod_docente, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                    message: `Docente  no encontrado con el codigo:  ${req.params.cod_docente}.`
+                });
+            } else {
+                res.status(500).send({
+                    message: "Error al recuperar edficio con id " + req.params.cod_docente
+                });
+            }
+        } else {
+            res.send(data);
+        }
+    });
+};
+
+exports.findMateriasDocente = (req, res) => {
+    Tarea_Asignatura.buscarMateriasDocente(req.params.cod_docente,req.params.cod_nivel_educativo, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                    message: `Docente  no encontrado con el codigo:  ${req.params.cod_docente}.`
+                });
+            } else {
+                res.status(500).send({
+                    message: "Error al recuperar edficio con id " + req.params.cod_docente
                 });
             }
         } else {
