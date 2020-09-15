@@ -59,7 +59,7 @@ export class TareaComponent implements OnInit {
     COD_ASIGNATURA: null,
     COD_PERIODO_LECTIVO: 'P12020',
     COD_PARALELO: 'PAR02',
-    COD_DOCENTE: '9',
+    COD_DOCENTE: null,
     COD_QUIMESTRE: '1',
     DETALLE_TAREA: null
   }
@@ -74,7 +74,8 @@ export class TareaComponent implements OnInit {
     console.log("Ingreso");
 
     console.log(this.nuevaTarea);
-
+    this.nuevaTarea.COD_DOCENTE = this.user.COD_PERSONA;
+    
     this.docenteService.nuevaTarea(this.nuevaTarea).subscribe(data =>{
       this.messageService.add({ severity: 'success', summary: 'Resultado', detail: 'Se guardo la nueva tarea correctamente' });
       this.displaySaveDialog = false;
@@ -114,7 +115,7 @@ export class TareaComponent implements OnInit {
   }
 
   getTares(codigo_nivel){
-    this.docenteService.getTareas("9",codigo_nivel).subscribe(data => {
+    this.docenteService.getTareas(this.user.COD_PERSONA,codigo_nivel).subscribe(data => {
       this.tarea = data;
       console.log(this.tarea);
     });
@@ -122,7 +123,7 @@ export class TareaComponent implements OnInit {
 
   showSaveDialog(): void {
     this.displaySaveDialog = true;
-    this.getNivelDocente("9");
+    this.getNivelDocente(this.user.COD_PERSONA,);
   }
 
   onLoad($event){
@@ -132,7 +133,7 @@ export class TareaComponent implements OnInit {
   
   getMateriasDocente(codigo_nivel){
     console.log(codigo_nivel);
-    this.docenteService.getMateriasDocentes("9",codigo_nivel).subscribe(data => {
+    this.docenteService.getMateriasDocentes(this.user.COD_PERSONA,codigo_nivel).subscribe(data => {
       this.materiasDocente = data;
       console.log(this.materiasDocente);
     });
@@ -140,7 +141,7 @@ export class TareaComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.getMaterias("9");
+    this.getMaterias('3');
     
     this.materiasOptions = [];
     
