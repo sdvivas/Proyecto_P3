@@ -11,4 +11,11 @@ export class EstudianteService {
   getMaterias(codDocente: String) : Observable<any>{
     return this.http.get(this.Url+"/est/nivel/"+codDocente);
   }
+  getMateriasEstudiante(codDocente: String, cod_nivel) : Observable<any>{
+    return this.http.get(this.Url+"/est/materias/"+codDocente+"/"+cod_nivel);
+  }
+
+  getNotasEstudiante(codDocente: String, cod_nivel, cod_asignatura) : Observable<any>{
+    return this.http.get(this.Url+"/ver_notas/"+codDocente+"/"+cod_nivel+"/"+cod_asignatura);
+  }
 }

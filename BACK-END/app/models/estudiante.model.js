@@ -16,8 +16,8 @@ Estudiante.buscarNotas = (cod_alumno,cod_nivel_educativo,cod_asignatura, result)
         }
 
         if (res.length) {
-            console.log("Edificio encontrado: ", res[0]);
-            result(null, res[0]);
+            console.log("Edificio encontrado: ", res);
+            result(null, res);
             return;
         } else {
             result({ kind: "not_found" }, null);
@@ -36,8 +36,8 @@ Estudiante.getNivelEducativo = (cod_alumno, result) => {
             return;
         }
         if (res.length) {
-            console.log("Edificio encontrado: ", res[0]);
-            result(null, res[0]);
+            console.log("Edificio encontrado: ", res);
+            result(null, res);
             return;
         } else {
             result({ kind: "not_found" }, null);
@@ -56,8 +56,8 @@ Estudiante.getMaterias = (cod_alumno, cod_materia,  result) => {
             return;
         }
         if (res.length) {
-            console.log("Edificio encontrado: ", res[0]);
-            result(null, res[0]);
+            console.log("Edificio encontrado: ", res);
+            result(null, res);
             return;
         } else {
             result({ kind: "not_found" }, null);

@@ -9,13 +9,49 @@
                         <label for="Materia">Nivel Educativo</label>
                     </div>
                     <div class="p-col-12 p-md-4">
-                        <select #materia name="materia" >
+                        <select #materia name="materia" (change)="onchange($event)" [(ngModel)]="codigo_nivel">
                             <option hidden selected>Seleccione un Nivel</option>
                             <option *ngFor="let resp of materias" [value]="resp.COD_NIVEL_EDUCATIVO">
                                 {{ resp.NOMBRE }}</option>
                         </select>
                     </div>
                 </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-1">
+                        <label for="Materia">Nivel Educativo</label>
+                    </div>
+                    <div class="p-col-12 p-md-4">
+                        <select #materiasEst name="materiasEst" (change)="cargarTabla($event)">
+                            <option hidden selected>Seleccione un Nivel</option>
+                            <option *ngFor="let mate of materiasEstudiante" [value]="mate.COD_ASIGNATURA">
+                                {{ mate.NOMBRE }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p-table [columns]="cols" [value]="notas" selectionMode="single" [(selection)]="selectedSede"
+                    dataKey="COD_TAREA_ASIGNATURA" styleClass="ui-table-borderless" [paginator]="true" [rows]="10"
+                    [responsive]="true">
+                    <ng-template pTemplate="caption">
+                        Calificaciones
+                    </ng-template>
+
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                {{col.header}}
+                                <p-sortIcon [field]="col.field"></p-sortIcon>
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-notas >
+                        <tr>
+                            <td>{{notas.NOTA1}}</td>
+                            <td>{{notas.NOTA2}}</td>
+                            <td>{{notas.NOTA3}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
             </div>
          </div>
     </div>
