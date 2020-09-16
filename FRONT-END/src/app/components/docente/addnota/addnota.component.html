@@ -24,10 +24,13 @@
                         </option>
                     </select>
                     </div>
+                    <div>
+                        <p-menubar [model]="items"></p-menubar>
+                    </div>
                 </div>
             </div>
-            <p-table [columns]="cols" [value]="verNotas" selectionMode="single" [(selection)]="selectedSede"
-                    dataKey="COD_TAREA_ASIGNATURA" styleClass="ui-table-borderless" [paginator]="true" [rows]="10"
+            <p-table [columns]="cols" [value]="verNotas" selectionMode="single" [(selection)]="selected"
+                    dataKey="COD_ALUMNO" styleClass="ui-table-borderless" [paginator]="true" [rows]="10"
                     [responsive]="true">
                     <ng-template pTemplate="caption">
                         Calificaciones
@@ -41,15 +44,42 @@
                             </th>
                         </tr>
                     </ng-template>
-                    <ng-template pTemplate="body" let-verNotas >
-                        <tr>
+                    <ng-template pTemplate="body" let-verNotas let-columns="columns" >
+                        <tr [pSelectableRow]="verNotas">
                             <td>{{verNotas.APELLIDO}}</td>
                             <td>{{verNotas.NOMBRE}}</td>
-                            <td>{{verNotas.NOTA1}}</td>
-                            <td>{{verNotas.NOTA2}}</td>
-                            <td>{{verNotas.NOTA3}}</td>
+                            <td><input type="number" value="{{verNotas.NOTA1}}"> </td>
+                            <td><input type="number" value="{{verNotas.NOTA2}}"> </td>
+                            <td><input type="number" value="{{verNotas.NOTA3}}"> </td>
                         </tr>
                     </ng-template>
                 </p-table>
+
+                <p-dialog header="Editar Notas" [(visible)]="displayUpdateDialog" [modal]="true"
+                [style]="{width: '600px'}">
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12">
+                        <div class="ui.g-4">
+                            <label for="codAula">Apellido</label>
+                        </div>
+                        <div class="ui.g-8">
+                            <input type="text" pInputText id="codAula" [disabled]="true" 
+                                required autofocus />
+                        </div>
+                    </div>
+                    
+                </div>
+                <p-footer>
+                    <div class="p-grid form-group">
+                        <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text"
+                            (click)="hideDialog()"></button>
+                        <button pButton pRipple label="Actualizar" icon="pi pi-check" class="p-button-text"
+                            (click)="actualizarAula()"></button>
+                    </div>
+                </p-footer>
+            </p-dialog>
+
+           
         </div>
     </div>

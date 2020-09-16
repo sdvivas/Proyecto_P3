@@ -13,6 +13,16 @@
                 <div>
                     <p-menubar [model]="items"></p-menubar>
                 </div>
+                <div class="p-col-12 p-md-1">
+                    <label for="Materia">Periodo Lectivo</label>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <select #materia name="materia" (change)="onchange($event)">
+                        <option hidden selected>Seleccione un Nivel</option>
+                        <option *ngFor="let resp of materias" [value]="resp.COD_NIVEL_EDUCATIVO">
+                            {{ resp.NOMBRE }}</option>
+                    </select>
+                </div>
                 <p-table [columns]="cols" [value]="aulas" selectionMode="single" [(selection)]="selectedAula"
                     dataKey="COD_AULA" styleClass="ui-table-borderless" [paginator]="true" [rows]="10"
                     [responsive]="true">
