@@ -44,6 +44,8 @@ export class AddnotaComponent implements OnInit {
   public Paralelo: Paralelo[];
   public cod_paralelo;
   public cod_nivel;
+  verNotas : Notas[];
+  cols: any[];
 
   constructor(private router: Router, private notaService: NotaService) { }
 
@@ -51,6 +53,13 @@ export class AddnotaComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user'));
     this.listNivel();
     this.listParalelo();
+    this.cols = [
+      { field: 'APELLIDO', header: 'APELLIDO' },
+      { field: 'NOMBRE', header: 'NOMBRE' },
+      { field: 'NOTA1', header: 'NOTA 1' },
+      { field: 'NOTA2', header: 'NOTA 2' },
+      { field: 'NOTA3', header: 'NOTA 3' }
+    ];
   }
 
   listNivel(){
@@ -76,6 +85,8 @@ export class AddnotaComponent implements OnInit {
  listEstudiante(cod_asignatura){
     this.notaService.listarEstudiante(this.user.COD_PERSONA,cod_asignatura,this.cod_paralelo,this.cod_nivel).subscribe(data => {
       console.log(data);
+      this.verNotas = data;
+      console.log(this.verNotas);
     }, error => {
       console.log(error);
 
