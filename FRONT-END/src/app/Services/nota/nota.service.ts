@@ -28,4 +28,8 @@ export class NotaService {
     const url = "http://localhost:3000/docente/estudiantes/" + cod_docente + "/" + cod_asignatura + "/" + cod_paralelo + "/" + cod_nivel_educativo;
     return this.http.get<any>(url);
   }
+  agregarNota(nota){
+    const url = "http://localhost:3000/docente/nota";
+    return this.http.put(url,nota);
+  }
 }

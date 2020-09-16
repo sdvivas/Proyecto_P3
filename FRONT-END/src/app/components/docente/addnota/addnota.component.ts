@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { NotaService } from "../../../Services/nota/nota.service";
 import { NivelDocentes  } from "../../../Models/docente/nivelDocente";
 import { Materia } from "../../../Models/docente/materia.interface";
